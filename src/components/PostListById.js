@@ -4,7 +4,10 @@ import useFetch from '../customHooks/useFetch'
 
 export default function PostListById() {
   const params = useParams()
-  const [data] = useFetch(`/posts/${params.id}`)
+  const [data] = useFetch('/posts/')
+
+  const filteredPost = data.filter(post=> post.userId == params.id)
+  console.log(filteredPost);
   return (
     <div>PostListById {params.id}</div>
   )

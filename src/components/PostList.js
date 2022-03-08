@@ -10,7 +10,7 @@ export default function PostList() {
       {data.map(users=>{
         const {id,name} = users
         return(
-          <ul>
+          <ul key={id}>
             <li onClick={()=> navigate(`/post-list/${id}`)}>{name}</li>
           </ul>
         )
