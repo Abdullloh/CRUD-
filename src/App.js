@@ -15,7 +15,8 @@ function App() {
   },[])
   return (
     <Container>
-      <span onClick={()=> setOpen(!open)}>x</span>
+      {innerWidth > 768 ? null: <span onClick={()=> setOpen(!open)}>x</span> }
+     
       {innerWidth > 768 ? <Sidebar /> : open ? <Sidebar/> : null}
       {/* <Sidebar /> */}
       <Routes>
