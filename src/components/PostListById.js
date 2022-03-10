@@ -9,10 +9,11 @@ import { StyledButton } from "../styles/AddPostStyle";
 export default function PostListById() {
   const params = useParams();
   const [data] = useFetch("/posts/");
+  const [comments] = useFetch(`/comments/`);
   const [postId, setPostId] = useState();
   const [visible, setVisible] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const [comments] = useFetch(`/comments/`);
+  const [open, setOpen] = useState(false);
   const filteredPost = data.filter((post) => post.userId === +params.id);
   const filteredComments = comments.filter(
     (comment) => comment.postId === +postId
@@ -22,11 +23,13 @@ export default function PostListById() {
     console.log(id, i);
     setPostId(id);
     setIsActive(i);
-    setVisible(!visible)
-
+    setVisible(!visible);
   };
-  console.log(isActive);
-  const [see, setSee] = useState(false);
+  const handleOpenBtn = (e) => {
+    e.stopPropagation();
+    setOpen(!open);
+  };
+  console.log(open);
   return (
     <PostById>
       PostListById {params.id}
@@ -40,27 +43,33 @@ export default function PostListById() {
                 className={isActive === i ? "activce" : ""}
                 onClick={() => handleClick(id, i)}
               >
-               <span>
-               {title}
-                {body}
-               </span>
+                <span>
+                  {title}
+                  {body}
+                </span>
                 {isActive == i && visible
-                  ? filteredComments.map((comments,i) => {
-                    const {id,name,email} = comments 
+                  ? filteredComments.map((comments, i) => {
+                      const { id, name, email } = comments;
                       return (
                         <>
                           <h4>{email}:</h4> <p key={id}>{name}</p>
                         </>
                       );
                     })
-                  : ""
-                  
-                  }
-                {isActive === i && visible ? <StyledButton onClick={(e)=> e.stopPropagation()} style={{width:'10%'}}>Add</StyledButton>:null}
+                  : ""}
+                {isActive === i && visible ? (
+                  <StyledButton
+                    onClick={handleOpenBtn}
+                    style={{ width: "150px" }}
+                  >
+                    Add Comment
+                  </StyledButton>
+                ) : null}
               </li>
             </>
           );
         })}
+        {open ? <Form setOpen={setOpen} open={open} /> : ""}
       </ul>
     </PostById>
   );

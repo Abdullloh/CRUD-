@@ -5,20 +5,20 @@ export default function useFetch(url) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const fetchData = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
       const res = await Axios.get(url);
       if (res.status == 200) {
         const { data } = res;
         setData(data);
       }
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
-      setLoading(false)
+      setLoading(false);
     }
   };
   useEffect(() => {
     fetchData();
   }, [url]);
-  return [data,loading];
+  return [data, loading];
 }

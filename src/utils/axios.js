@@ -7,7 +7,7 @@ const Axios = axios.create({
 
 Axios.interceptors.request.use(
   (configs) => {
-    return configs
+    return configs;
   },
   (err) => {
     console.log(err.response);

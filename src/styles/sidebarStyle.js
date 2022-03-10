@@ -19,10 +19,10 @@ const SidebarContainer = styled.div`
     background: rgb(158 191 225);
     transition: 1s all ease;
   }
-  @media (max-width:768px){
-    position:absolute ;
-    width:100vw ;
-    text-align:center ;
+  @media (max-width: 768px) {
+    position: absolute;
+    width: 100vw;
+    text-align: center;
   }
 `;
 

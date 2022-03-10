@@ -25,7 +25,11 @@ function App() {
         </BurgerStyle>
       )}
 
-      {innerWidth > 768 ? <Sidebar setOpen={setOpen} /> : open ? <Sidebar setOpen={setOpen}/> : null}
+      {innerWidth > 768 ? (
+        <Sidebar setOpen={setOpen} />
+      ) : open ? (
+        <Sidebar setOpen={setOpen} />
+      ) : null}
       {/* <Sidebar /> */}
       <Routes>
         {routes.map((route) => {
