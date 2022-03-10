@@ -5,12 +5,14 @@ import images from "../images";
 import { PostListStyle } from "../styles/PostListStyle";
 
 export default function PostList() {
-  const [data] = useFetch("/users");
+  const [data,loading] = useFetch("/users");
+
   const navigate = useNavigate();
 
   return (
     <PostListStyle>
       <h1>Post List</h1>
+      {loading ? <p>Loading ...</p>:""}
       <ul>
         {data.map((users, i) => {
           const { id, name } = users;

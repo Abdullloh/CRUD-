@@ -7,6 +7,7 @@ const SidebarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 35px 0;
   a {
     color: #fff;
     text-decoration: none;
@@ -17,6 +18,11 @@ const SidebarContainer = styled.div`
   a:hover {
     background: rgb(158 191 225);
     transition: 1s all ease;
+  }
+  @media (max-width:768px){
+    position:absolute ;
+    width:100vw ;
+    text-align:center ;
   }
 `;
 

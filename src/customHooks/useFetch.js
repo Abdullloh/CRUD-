@@ -3,17 +3,22 @@ import Axios from "../utils/axios";
 
 export default function useFetch(url) {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const fetchData = async () => {
+    setLoading(true)
     try {
       const res = await Axios.get(url);
       if (res.status == 200) {
         const { data } = res;
         setData(data);
       }
-    } catch (error) {}
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    }
   };
   useEffect(() => {
     fetchData();
   }, [url]);
-  return [data];
+  return [data,loading];
 }
