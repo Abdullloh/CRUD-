@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
 import useFetch from "../customHooks/useFetch";
 import { PostById } from "../styles/PostById";
 import Axios from "../utils/axios";
@@ -7,7 +6,6 @@ import Form from "./Form";
 import { StyledButton } from "../styles/AddPostStyle";
 
 export default function PostListById({userId}) {
-  const params = useParams();
   const [data] = useFetch("/posts/");
   const [comments] = useFetch(`/comments/`);
   const [postId, setPostId] = useState();
@@ -32,7 +30,7 @@ export default function PostListById({userId}) {
   console.log(open);
   return (
     <PostById>
-      PostListById {params.id}
+      User posts
       <ul>
         {filteredPost.map((posts, i) => {
           const { id, title, body } = posts;

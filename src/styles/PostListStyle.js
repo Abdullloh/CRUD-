@@ -3,7 +3,7 @@ import styled from "styled-components";
 const PostListStyle = styled.div`
   width: 75%;
   height: 100%;
-  padding: 35px 0;
+  padding: 35px 8px;
   ul {
     display: flex;
     max-width:100%;
@@ -14,6 +14,7 @@ const PostListStyle = styled.div`
       height: 210px;
       width: 200px;
       cursor: pointer;
+      border-radius:8px;
       display: flex;
       align-items: center;
       justify-content:space-evenly;

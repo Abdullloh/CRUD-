@@ -13,7 +13,7 @@ export default function PostList() {
   return (
     <>
     <PostListStyle>
-      <h1>Post List</h1>
+      <h1>User List</h1>
       {loading ? <p>Loading ...</p> : ""}
       <ul>
         {data.map((users, i) => {
