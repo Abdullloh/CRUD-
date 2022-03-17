@@ -7,6 +7,7 @@ const PostListStyle = styled.div`
   ul {
     display: flex;
     max-width:100%;
+    overflow-x:scroll;
     list-style: none;
     justify-content: space-between;
     #posts {
