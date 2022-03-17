@@ -21,12 +21,12 @@ const routes = [
     element: <AddPost />,
     exact: true,
   },
-  {
-    key: "addPost",
-    path: "/post-list/:id",
-    element: <PostListById />,
-    exact: true,
-  },
+  // {
+  //   key: "addPost",
+  //   path: "/post-list/:id",
+  //   element: <PostListById />,
+  //   exact: true,
+  // },
 ];
 
 export default routes;

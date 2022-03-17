@@ -6,7 +6,7 @@ import Axios from "../utils/axios";
 import Form from "./Form";
 import { StyledButton } from "../styles/AddPostStyle";
 
-export default function PostListById() {
+export default function PostListById({userId}) {
   const params = useParams();
   const [data] = useFetch("/posts/");
   const [comments] = useFetch(`/comments/`);
@@ -14,7 +14,7 @@ export default function PostListById() {
   const [visible, setVisible] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [open, setOpen] = useState(false);
-  const filteredPost = data.filter((post) => post.userId === +params.id);
+  const filteredPost = data.filter((post) => post.userId === +userId);
   const filteredComments = comments.filter(
     (comment) => comment.postId === +postId
   );
@@ -40,6 +40,7 @@ export default function PostListById() {
             <>
               <li
                 key={i}
+                id="postById"
                 className={isActive === i ? "activce" : ""}
                 onClick={() => handleClick(id, i)}
               >

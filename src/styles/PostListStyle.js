@@ -6,23 +6,26 @@ const PostListStyle = styled.div`
   padding: 35px 0;
   ul {
     display: flex;
-    flex-wrap: wrap;
+    max-width:100%;
     list-style: none;
     justify-content: space-between;
-    li {
+    #posts {
       height: 210px;
       width: 200px;
       cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content:space-evenly;
+      margin:4px;
+      border:1px solid;
       flex-direction: column;
       padding: 20px;
       img {
         width: 100%;
       }
-    }
-    @media (max-width: 375px) {
-      justify-content: center;
+      @media (max-width: 375px) {
+        width:150px;
+      }
     }
   }
   @media (max-width: 768px) {
